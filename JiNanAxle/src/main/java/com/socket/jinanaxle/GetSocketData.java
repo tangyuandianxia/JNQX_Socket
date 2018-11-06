@@ -124,6 +124,8 @@ public class GetSocketData  implements ApplicationRunner {
                             while ((len = br.read(chars)) != -1) {
 //                    Thread.sleep(5000);
                                 String result = new String(chars, 0, len);
+                                //去除所有换行符
+                                result=result.replaceAll("[\\n\\r]","");
                                 /**
                                  * 调用方法，保存接收到的数据
                                  */
@@ -140,9 +142,9 @@ public class GetSocketData  implements ApplicationRunner {
                                         break;*/
                                     default:;
                                 }
-                                System.out.println("from server"+voidSign+": " + host + port + " : " + result);
+                                System.out.println("from server "+voidSign+": " + " host: " + host + " port: " + port + " : " + result);
                             }
-                            System.out.println("out while reuslt from server"+voidSign+": " + host + port + " : " + sb);
+                            System.out.println("out while reuslt from server "+voidSign+": " + " host: " + host+ " port: "  + port + " : " + sb);
                             //pw.println(str);
                             //pw.flush();
                         }
